@@ -3,143 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ANNA HAIR CARE</title>
+<title>ANNA HAIR CARE | ดูแลเส้นผมอย่างอ่อนโยน</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#faf7f1;color:#40382f}
-header{background:#e9dfd0;padding:25px;text-align:center}
-header h1{letter-spacing:3px;margin:5px}
-nav{padding:15px;text-align:center;background:#fff}
-nav a{margin:0 12px;color:#514638;text-decoration:none}
-.hero{text-align:center;padding:55px 15px;background:#eee5d8}
-.hero h2{font-size:32px}
-button{background:#75634d;color:white;border:0;padding:12px 20px;border-radius:7px;cursor:pointer}
-section{padding:30px 6%;scroll-margin-top:15px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:white;padding:20px;border-radius:12px;text-align:center}
-.bottle{font-size:75px;background:#f1eadf;padding:20px;border-radius:12px}
-.price{font-size:20px;color:#94734c;font-weight:bold}
-input,textarea{width:100%;padding:12px;margin:7px 0 14px;border:1px solid #ccc;border-radius:6px}
-.order{background:white;padding:20px;border-radius:12px}
-footer{text-align:center;background:#e9dfd0;padding:25px}
-table{width:100%;border-collapse:collapse;background:white}
-td,th{border:1px solid #ddd;padding:10px;text-align:left}
+:root{--cream:#f7f2e9;--paper:#fffdf9;--ink:#302c26;--muted:#786f63;--green:#68775d;--green2:#dfe6d8;--line:#e8dfd2;--gold:#b18a55}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,"Noto Sans Thai",sans-serif;line-height:1.6}
+header{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.wrap{max-width:1120px;margin:auto;padding:0 22px}.top{height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{font-size:20px;font-weight:800;letter-spacing:2px}.brand small{display:block;font-size:10px;letter-spacing:3px;color:var(--muted);font-weight:400}
+nav{display:flex;gap:22px}nav a{color:var(--ink);text-decoration:none;font-size:14px}
+.btn{border:0;border-radius:999px;background:var(--green);color:white;padding:12px 20px;cursor:pointer;font-weight:700}.btn:hover{filter:brightness(.94)}.btn.light{background:var(--green2);color:#34402e}.btn.outline{background:transparent;color:var(--green);border:1px solid var(--green)}
+.hero{padding:70px 0 62px;background:linear-gradient(110deg,#eee7da,#f8f4ed 60%,#e4e9dd)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:34px}.eyebrow{color:var(--green);font-size:12px;font-weight:800;letter-spacing:3px}
+h1{font-family:Georgia,serif;font-size:clamp(38px,6vw,64px);line-height:1.08;margin:14px 0}.hero p{color:var(--muted);max-width:470px}.hero-art{min-height:300px;display:flex;align-items:center;justify-content:center;gap:18px;background:#f6f0e6;border-radius:48% 48% 18px 18px;padding:30px}
+.bottle{width:120px;height:210px;border-radius:24px 24px 18px 18px;background:linear-gradient(90deg,#a8b69a,#d9e0cf 45%,#91a083);box-shadow:12px 18px 25px #766b5526;position:relative;display:flex;align-items:center;justify-content:center;text-align:center;color:#34402e;font-weight:700;font-size:13px;padding:14px}
+.bottle:before{content:"";position:absolute;top:-23px;width:48px;height:28px;background:#65745a;border-radius:7px 7px 3px 3px}.bottle.pink{background:linear-gradient(90deg,#c9a28d,#f0d8c9 48%,#bd927d);color:#654b3e}.bottle.pink:before{background:#9b705d}
+section{padding:62px 0}.section-head{text-align:center;margin-bottom:30px}.section-head h2{font-family:Georgia,serif;font-size:34px;margin:5px}.section-head p{color:var(--muted);margin:0}
+.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.product{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;grid-template-columns:155px 1fr;gap:22px;align-items:center}
+.product-art{height:190px;border-radius:14px;background:#edf0e8;display:flex;align-items:center;justify-content:center}.product-art .bottle{transform:scale(.78)}.product-art.pinkbg{background:#f3e8e1}
+.product h3{margin:5px 0;font-size:21px}.sku{font-size:11px;letter-spacing:1px;color:var(--muted)}.desc{font-size:14px;color:var(--muted);min-height:44px}.price{font-size:22px;font-weight:800;color:var(--green);margin:12px 0}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px}.cart-layout{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+input,textarea,select{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:10px;background:white;font:inherit;margin:5px 0 13px}label{font-size:13px;font-weight:700}.cart-line{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:10px 0;gap:10px}.muted{color:var(--muted);font-size:13px}.total{font-size:22px;font-weight:800;text-align:right;margin:16px 0}
+.admin{background:#ecefe8}.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px;background:white}th,td{padding:11px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}th{background:#f2f0e9}.status{padding:4px 8px;border-radius:99px;background:#f2ead8;font-size:11px}
+.notice{padding:12px 15px;background:#f5eddd;border-radius:10px;color:#695638;font-size:13px;margin:12px 0}.success{background:#e6eee1;color:#40543a}
+footer{background:#343c30;color:#f7f2e9;padding:32px 0;text-align:center}.hidden{display:none!important}
+@media(max-width:760px){nav{display:none}.hero-grid,.cart-layout,.admin-grid{grid-template-columns:1fr}.products{grid-template-columns:1fr}.product{grid-template-columns:115px 1fr;padding:14px;gap:14px}.product-art{height:165px}.product-art .bottle{transform:scale(.65)}.hero{padding:45px 0}.hero-art{min-height:230px}}
 </style>
 </head>
 <body>
+<header><div class="wrap top">
+  <div class="brand">ANNA HAIR CARE<small>CARE FOR YOUR EVERYDAY HAIR</small></div>
+  <nav><a href="#home">หน้าแรก</a><a href="#products">สินค้า</a><a href="#order">สั่งซื้อ</a><a href="#fulfillment">จัดการออเดอร์</a></nav>
+  <a href="#order"><button class="btn">ตะกร้าสินค้า</button></a>
+</div></header>
+<main>
+<section class="hero" id="home"><div class="wrap hero-grid">
+  <div><div class="eyebrow">NATURAL HAIR CARE</div><h1>Good hair days<br>start here.</h1>
+  <p>เลือกการดูแลเส้นผมที่ใช่ ด้วยแชมพูสูตรอ่อนโยนจาก ANNA HAIR CARE</p>
+  <a href="#products"><button class="btn">เลือกชมสินค้า</button></a></div>
+  <div class="hero-art"><div class="bottle">HERBAL<br>SHAMPOO</div><div class="bottle pink">ARGAN<br>SHAMPOO</div></div>
+</div></section>
 
-<header>
-<h1>ANNA HAIR CARE</h1>
-<p>BEAUTY STARTS WITH HEALTHY HAIR</p>
-</header>
+<section id="products"><div class="wrap">
+  <div class="section-head"><div class="eyebrow">OUR PRODUCTS</div><h2>สินค้าของเรา</h2><p>มีสินค้า 2 รายการ (2 SKUs) สำหรับการสาธิตระบบร้านค้า</p></div>
+  <div class="products" id="productList"></div>
+</div></section>
 
-<nav>
-<a href="#home">หน้าแรก</a>
-<a href="#products">สินค้า</a>
-<a href="#order">สั่งซื้อ</a>
-<a href="#admin">รายการจัดสินค้า</a>
-</nav>
+<section id="order"><div class="wrap">
+  <div class="section-head"><div class="eyebrow">CHECKOUT</div><h2>ตะกร้าและข้อมูลจัดส่ง</h2><p>กรอกข้อมูลให้ครบก่อนยืนยันคำสั่งซื้อ</p></div>
+  <div class="cart-layout">
+    <div class="panel"><h3>รายการสินค้า</h3><div id="cartItems" class="muted">ยังไม่มีสินค้าในตะกร้า</div><div class="total" id="cartTotal">รวม 0 บาท</div></div>
+    <form class="panel" id="orderForm"><h3>ข้อมูลลูกค้า</h3>
+      <label>ชื่อ-นามสกุล</label><input id="customer" required placeholder="ชื่อลูกค้า">
+      <label>เบอร์โทรศัพท์</label><input id="phone" required pattern="[0-9+ -]{9,15}" placeholder="08xxxxxxxx">
+      <label>ที่อยู่จัดส่ง</label><textarea id="address" rows="3" required placeholder="บ้านเลขที่ ถนน แขวง/ตำบล เขต/อำเภอ จังหวัด รหัสไปรษณีย์"></textarea>
+      <label>หมายเหตุ (ถ้ามี)</label><input id="note" placeholder="เช่น ฝากโทรก่อนส่ง">
+      <button class="btn" type="submit">ยืนยันคำสั่งซื้อ</button>
+      <div id="orderMessage" class="notice hidden"></div>
+    </form>
+  </div>
+</div></section>
 
-<div class="hero" id="home">
-<h2>ดูแลเส้นผม ให้สวยอย่างเป็นธรรมชาติ</h2>
-<p>ค้นพบแชมพูที่เหมาะกับเส้นผมของคุณ</p>
-<a href="#products"><button>เลือกซื้อสินค้า</button></a>
-</div>
-
-<section id="products">
-<h2>OUR PRODUCTS | สินค้าของเรา</h2>
-<div class="products">
-
-<div class="card">
-<div class="bottle">🧴🌿</div>
-<h3>Herbal Shampoo</h3>
-<p>รหัสสินค้า: SH001</p>
-<p>แชมพูสมุนไพร บำรุงเส้นผม</p>
-<p class="price">159 บาท</p>
-<button onclick="add('SH001','Herbal Shampoo',159)">เพิ่มลงตะกร้า</button>
-</div>
-
-<div class="card">
-<div class="bottle">🧴🌸</div>
-<h3>Argan Shampoo</h3>
-<p>รหัสสินค้า: SH002</p>
-<p>แชมพูอาร์แกนออยล์ ดูแลเส้นผม</p>
-<p class="price">199 บาท</p>
-<button onclick="add('SH002','Argan Shampoo',199)">เพิ่มลงตะกร้า</button>
-</div>
-
-</div>
-</section>
-
-<section id="order">
-<h2>ตะกร้าสินค้าและสั่งซื้อ</h2>
-<div class="order">
-<div id="cart">ยังไม่มีสินค้าในตะกร้า</div>
-<h3 id="total">รวม 0 บาท</h3>
-<h3>ข้อมูลลูกค้า</h3>
-<input id="customer" placeholder="ชื่อลูกค้า">
-<input id="phone" placeholder="เบอร์โทรศัพท์">
-<textarea id="address" placeholder="ที่อยู่สำหรับจัดส่ง"></textarea>
-<button onclick="checkout()">ยืนยันคำสั่งซื้อ</button>
-<p id="message"></p>
-</div>
-</section>
-
-<section id="admin">
-<h2>ระบบจัดการคำสั่งซื้อ</h2>
-<p>รายการสินค้าที่ต้องหยิบและเตรียมแพ็ก</p>
-<table>
-<thead><tr><th>รหัสสินค้า</th><th>สินค้า</th><th>จำนวน</th></tr></thead>
-<tbody id="picklist">
-<tr><td colspan="3">ยังไม่มีคำสั่งซื้อ</td></tr>
-</tbody>
-</table>
-<h3>ประวัติคำสั่งซื้อ</h3>
-<div id="history"></div>
-</section>
-
-<footer>
-<p>ANNA HAIR CARE</p>
-<p>Thank you for shopping with us ♡</p>
-</footer>
+<section class="admin" id="fulfillment"><div class="wrap">
+  <div class="section-head"><div class="eyebrow">BACK OFFICE</div><h2>ระบบหยิบ แพ็ก และจัดส่ง</h2><p>รายการคำสั่งซื้อสำหรับผู้ดูแลร้าน</p></div>
+  <div class="notice" id="connectionNotice">โหมดสาธิตในเครื่อง: คำสั่งซื้อจะเก็บในเบราว์เซอร์นี้ หากต้องการบันทึกลง Google Sheets ให้ตั้งค่า URL ตามคู่มือ</div>
+  <div class="panel" style="margin-bottom:18px"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><h3>รายการคำสั่งซื้อ</h3><button class="btn light" id="refreshOrders" type="button">รีเฟรชรายการ</button></div>
+    <div class="table-wrap"><table><thead><tr><th>เลขที่ออเดอร์</th><th>ลูกค้า</th><th>สินค้า / จำนวน</th><th>ยอดรวม</th><th>สถานะ</th><th>อัปเดตสถานะ</th></tr></thead><tbody id="ordersTable"><tr><td colspan="6">ยังไม่มีคำสั่งซื้อ</td></tr></tbody></table></div>
+  </div>
+  <div class="admin-grid">
+    <div class="panel"><h3>ใบหยิบสินค้า (Picking List)</h3><p class="muted">สรุปจำนวนสินค้าที่ต้องหยิบแยกตาม SKU จากออเดอร์ที่ยังไม่จัดส่ง</p><div class="table-wrap"><table><thead><tr><th>SKU</th><th>สินค้า</th><th>จำนวนที่ต้องหยิบ</th></tr></thead><tbody id="pickingTable"><tr><td colspan="3">ไม่มีรายการ</td></tr></tbody></table></div></div>
+    <div class="panel"><h3>ใบแพ็กและข้อมูลจัดส่ง</h3><div id="packingInfo" class="muted">เลือกออเดอร์จากตารางเพื่อดูข้อมูลแพ็กสินค้า</div></div>
+  </div>
+</div></section>
+</main>
+<footer><div class="wrap"><b>ANNA HAIR CARE</b><br><span class="muted" style="color:#d6d9cf">ตัวอย่างโครงงานร้านค้าออนไลน์และการจัดการคำสั่งซื้อ</span></div></footer>
 
 <script>
-let cart=[];
-let orders=[];
-function add(id,name,price){
-let item=cart.find(x=>x.id===id);
-if(item){item.qty++;}
-else{cart.push({id,name,price,qty:1});}
-showCart();
+const PRODUCTS=[
+ {sku:"SH001",name:"Herbal Shampoo",thai:"แชมพูสมุนไพร",desc:"สูตรสมุนไพร สำหรับการดูแลเส้นผมในทุกวัน",price:159,stock:30,style:""},
+ {sku:"SH002",name:"Argan Shampoo",thai:"แชมพูอาร์แกนออยล์",desc:"สูตรอาร์แกนออยล์ ช่วยให้เส้นผมดูนุ่มลื่น",price:199,stock:25,style:"pink"}
+];
+const API_URL=""; // ใส่ Web App URL จาก Google Apps Script ในขั้นตอนเชื่อม Google Sheets
+let cart=[];let orders=JSON.parse(localStorage.getItem("annaOrders")||"[]");let selectedOrder=null;
+const money=n=>Number(n).toLocaleString("th-TH")+" บาท";
+function renderProducts(){document.getElementById("productList").innerHTML=PRODUCTS.map(p=>`
+ <article class="product"><div class="product-art ${p.style?"pinkbg":""}"><div class="bottle ${p.style}">${p.name.toUpperCase()}</div></div>
+ <div><div class="sku">${p.sku} · สินค้าสาธิต</div><h3>${p.thai}</h3><div class="desc">${p.desc}</div><div class="price">${money(p.price)}</div><button class="btn" onclick="addToCart('${p.sku}')">เพิ่มลงตะกร้า</button></div></article>`).join("");}
+function addToCart(sku){let p=PRODUCTS.find(x=>x.sku===sku),item=cart.find(x=>x.sku===sku);if(item)item.qty++;else cart.push({...p,qty:1});renderCart();}
+function renderCart(){let el=document.getElementById("cartItems");el.innerHTML=cart.length?cart.map(x=>`<div class="cart-line"><span>${x.thai}<br><small class="muted">${x.sku} × ${x.qty}</small></span><b>${money(x.price*x.qty)}</b></div>`).join(""):"ยังไม่มีสินค้าในตะกร้า";document.getElementById("cartTotal").textContent="รวม "+money(cart.reduce((s,x)=>s+x.price*x.qty,0));}
+function safe(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+async function submitOrder(e){e.preventDefault();if(!cart.length){alert("กรุณาเลือกสินค้าก่อน");return;}let order={id:"AN"+Date.now().toString().slice(-8),createdAt:new Date().toISOString(),customer:document.getElementById("customer").value.trim(),phone:document.getElementById("phone").value.trim(),address:document.getElementById("address").value.trim(),note:document.getElementById("note").value.trim(),items:cart.map(x=>({sku:x.sku,name:x.thai,qty:x.qty,price:x.price})),total:cart.reduce((s,x)=>s+x.price*x.qty,0),status:"รอหยิบสินค้า"};
+ let msg=document.getElementById("orderMessage");msg.classList.remove("hidden","success");msg.textContent="กำลังบันทึกคำสั่งซื้อ...";
+ try{if(API_URL){await fetch(API_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:"createOrder",order})});msg.textContent="ส่งคำสั่งซื้อไปยัง Google Sheets แล้ว (ตรวจสอบแท็บ Orders)";}else{orders.unshift(order);localStorage.setItem("annaOrders",JSON.stringify(orders));msg.textContent="บันทึกคำสั่งซื้อในเครื่องนี้แล้ว เลขที่ "+order.id+" (ยังไม่ได้ส่งเข้า Google Sheets)";}}
+ catch(err){orders.unshift(order);localStorage.setItem("annaOrders",JSON.stringify(orders));msg.textContent="เชื่อม Google Sheets ไม่สำเร็จ จึงบันทึกตัวอย่างไว้ในเครื่องนี้";}
+ msg.classList.add("success");cart=[];renderCart();document.getElementById("orderForm").reset();await refreshOrders();}
+function statusOptions(current,id){return ["รอหยิบสินค้า","หยิบสินค้าแล้ว","แพ็กสินค้าแล้ว","จัดส่งแล้ว"].map(s=>`<option ${s===current?"selected":""}>${s}</option>`).join("");}
+function renderOrders(){let tb=document.getElementById("ordersTable");tb.innerHTML=orders.length?orders.map(o=>`<tr><td><a href="#" onclick="showPacking('${o.id}');return false">${safe(o.id)}</a></td><td>${safe(o.customer)}</td><td>${o.items.map(i=>safe(i.name)+" × "+i.qty).join("<br>")}</td><td>${money(o.total)}</td><td><span class="status">${safe(o.status)}</span></td><td><select onchange="changeStatus('${o.id}',this.value)">${statusOptions(o.status,o.id)}</select></td></tr>`).join(""):'<tr><td colspan="6">ยังไม่มีคำสั่งซื้อ</td></tr>';
+ let tally={};orders.filter(o=>o.status!=="จัดส่งแล้ว").forEach(o=>o.items.forEach(i=>{if(!tally[i.sku])tally[i.sku]={name:i.name,qty:0};tally[i.sku].qty+=Number(i.qty)}));
+ document.getElementById("pickingTable").innerHTML=Object.keys(tally).length?Object.entries(tally).map(([sku,v])=>`<tr><td>${sku}</td><td>${safe(v.name)}</td><td><b>${v.qty}</b></td></tr>`).join(""):'<tr><td colspan="3">ไม่มีรายการ</td></tr>';
 }
-function showCart(){
-let el=document.getElementById('cart');
-if(cart.length===0){el.innerHTML='ยังไม่มีสินค้าในตะกร้า';}
-else{el.innerHTML=cart.map(x=>
-`<p>${x.name} (${x.id}) × ${x.qty} = ${x.price*x.qty} บาท</p>`
-).join('');}
-let total=cart.reduce((s,x)=>s+x.price*x.qty,0);
-document.getElementById('total').innerText='รวม '+total+' บาท';
-}
-function checkout(){
-let customer=document.getElementById('customer').value.trim();
-let phone=document.getElementById('phone').value.trim();
-let address=document.getElementById('address').value.trim();
-if(!customer||!phone||!address||cart.length===0){
-alert('กรุณากรอกข้อมูลลูกค้าและเลือกสินค้าให้ครบ');
-return;
-}
-let order={customer,phone,address,items:cart.map(x=>({...x})),total:cart.reduce((s,x)=>s+x.price*x.qty,0)};
-orders.push(order);
-document.getElementById('message').innerText='บันทึกคำสั่งซื้อเรียบร้อยแล้ว';
-document.getElementById('picklist').innerHTML=cart.map(x=>
-`<tr><td>${x.id}</td><td>${x.name}</td><td>${x.qty}</td></tr>`
-).join('');
-document.getElementById('history').innerHTML+=
-`<div class="order"><b>ลูกค้า:</b> ${customer}<br><b>โทร:</b> ${phone}<br><b>ที่อยู่:</b> ${address}<br><b>ยอดรวม:</b> ${order.total} บาท<br><b>สินค้า:</b> ${order.items.map(x=>x.name+' × '+x.qty).join(', ')}</div><br>`;
-cart=[];
-showCart();
-}
+function showPacking(id){selectedOrder=orders.find(o=>o.id===id);if(!selectedOrder)return;let o=selectedOrder;document.getElementById("packingInfo").innerHTML=`<b>เลขที่ออเดอร์:</b> ${safe(o.id)}<br><b>ผู้รับ:</b> ${safe(o.customer)}<br><b>โทร:</b> ${safe(o.phone)}<br><b>ที่อยู่:</b> ${safe(o.address)}<br><b>รายการ:</b><ul>${o.items.map(i=>`<li>${safe(i.name)} (${i.sku}) × ${i.qty}</li>`).join("")}</ul><b>ยอดรวม:</b> ${money(o.total)}<br><b>หมายเหตุ:</b> ${safe(o.note||"-")}<div class="notice">ตรวจสอบสินค้าและจำนวนให้ตรงกับรายการก่อนปิดกล่องและติดใบปะหน้าพัสดุ</div>`;}
+function changeStatus(id,status){let o=orders.find(x=>x.id===id);if(!o)return;o.status=status;localStorage.setItem("annaOrders",JSON.stringify(orders));renderOrders();if(API_URL)fetch(API_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:"updateStatus",id,status})});}
+async function refreshOrders(){if(API_URL){try{let r=await fetch(API_URL);let d=await r.json();if(d.orders)orders=d.orders;document.getElementById("connectionNotice").textContent="เชื่อมต่อ Google Sheets แล้ว";document.getElementById("connectionNotice").classList.add("success");}catch(e){document.getElementById("connectionNotice").textContent="ยังดึงข้อมูลจาก Google Sheets ไม่ได้ กรุณาตรวจสอบ URL และการ Deploy";}}renderOrders();}
+document.getElementById("orderForm").addEventListener("submit",submitOrder);document.getElementById("refreshOrders").addEventListener("click",refreshOrders);
+renderProducts();renderCart();renderOrders();
 </script>
-</body>
-</html>
+</body></html>
