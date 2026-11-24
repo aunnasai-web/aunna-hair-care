@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ANNA HAIR CARE</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#faf7f1;color:#40382f}
+header{background:#e9dfd0;padding:25px;text-align:center}
+header h1{letter-spacing:3px;margin:5px}
+nav{padding:15px;text-align:center;background:#fff}
+nav a{margin:0 12px;color:#514638;text-decoration:none}
+.hero{text-align:center;padding:55px 15px;background:#eee5d8}
+.hero h2{font-size:32px}
+button{background:#75634d;color:white;border:0;padding:12px 20px;border-radius:7px;cursor:pointer}
+section{padding:30px 6%;scroll-margin-top:15px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:white;padding:20px;border-radius:12px;text-align:center}
+.bottle{font-size:75px;background:#f1eadf;padding:20px;border-radius:12px}
+.price{font-size:20px;color:#94734c;font-weight:bold}
+input,textarea{width:100%;padding:12px;margin:7px 0 14px;border:1px solid #ccc;border-radius:6px}
+.order{background:white;padding:20px;border-radius:12px}
+footer{text-align:center;background:#e9dfd0;padding:25px}
+table{width:100%;border-collapse:collapse;background:white}
+td,th{border:1px solid #ddd;padding:10px;text-align:left}
+</style>
+</head>
+<body>
+
+<header>
+<h1>ANNA HAIR CARE</h1>
+<p>BEAUTY STARTS WITH HEALTHY HAIR</p>
+</header>
+
+<nav>
+<a href="#home">หน้าแรก</a>
+<a href="#products">สินค้า</a>
+<a href="#order">สั่งซื้อ</a>
+<a href="#admin">รายการจัดสินค้า</a>
+</nav>
+
+<div class="hero" id="home">
+<h2>ดูแลเส้นผม ให้สวยอย่างเป็นธรรมชาติ</h2>
+<p>ค้นพบแชมพูที่เหมาะกับเส้นผมของคุณ</p>
+<a href="#products"><button>เลือกซื้อสินค้า</button></a>
+</div>
+
+<section id="products">
+<h2>OUR PRODUCTS | สินค้าของเรา</h2>
+<div class="products">
+
+<div class="card">
+<div class="bottle">🧴🌿</div>
+<h3>Herbal Shampoo</h3>
+<p>รหัสสินค้า: SH001</p>
+<p>แชมพูสมุนไพร บำรุงเส้นผม</p>
+<p class="price">159 บาท</p>
+<button onclick="add('SH001','Herbal Shampoo',159)">เพิ่มลงตะกร้า</button>
+</div>
+
+<div class="card">
+<div class="bottle">🧴🌸</div>
+<h3>Argan Shampoo</h3>
+<p>รหัสสินค้า: SH002</p>
+<p>แชมพูอาร์แกนออยล์ ดูแลเส้นผม</p>
+<p class="price">199 บาท</p>
+<button onclick="add('SH002','Argan Shampoo',199)">เพิ่มลงตะกร้า</button>
+</div>
+
+</div>
+</section>
+
+<section id="order">
+<h2>ตะกร้าสินค้าและสั่งซื้อ</h2>
+<div class="order">
+<div id="cart">ยังไม่มีสินค้าในตะกร้า</div>
+<h3 id="total">รวม 0 บาท</h3>
+<h3>ข้อมูลลูกค้า</h3>
+<input id="customer" placeholder="ชื่อลูกค้า">
+<input id="phone" placeholder="เบอร์โทรศัพท์">
+<textarea id="address" placeholder="ที่อยู่สำหรับจัดส่ง"></textarea>
+<button onclick="checkout()">ยืนยันคำสั่งซื้อ</button>
+<p id="message"></p>
+</div>
+</section>
+
+<section id="admin">
+<h2>ระบบจัดการคำสั่งซื้อ</h2>
+<p>รายการสินค้าที่ต้องหยิบและเตรียมแพ็ก</p>
+<table>
+<thead><tr><th>รหัสสินค้า</th><th>สินค้า</th><th>จำนวน</th></tr></thead>
+<tbody id="picklist">
+<tr><td colspan="3">ยังไม่มีคำสั่งซื้อ</td></tr>
+</tbody>
+</table>
+<h3>ประวัติคำสั่งซื้อ</h3>
+<div id="history"></div>
+</section>
+
+<footer>
+<p>ANNA HAIR CARE</p>
+<p>Thank you for shopping with us ♡</p>
+</footer>
+
+<script>
+let cart=[];
+let orders=[];
+function add(id,name,price){
+let item=cart.find(x=>x.id===id);
+if(item){item.qty++;}
+else{cart.push({id,name,price,qty:1});}
+showCart();
+}
+function showCart(){
+let el=document.getElementById('cart');
+if(cart.length===0){el.innerHTML='ยังไม่มีสินค้าในตะกร้า';}
+else{el.innerHTML=cart.map(x=>
+`<p>${x.name} (${x.id}) × ${x.qty} = ${x.price*x.qty} บาท</p>`
+).join('');}
+let total=cart.reduce((s,x)=>s+x.price*x.qty,0);
+document.getElementById('total').innerText='รวม '+total+' บาท';
+}
+function checkout(){
+let customer=document.getElementById('customer').value.trim();
+let phone=document.getElementById('phone').value.trim();
+let address=document.getElementById('address').value.trim();
+if(!customer||!phone||!address||cart.length===0){
+alert('กรุณากรอกข้อมูลลูกค้าและเลือกสินค้าให้ครบ');
+return;
+}
+let order={customer,phone,address,items:cart.map(x=>({...x})),total:cart.reduce((s,x)=>s+x.price*x.qty,0)};
+orders.push(order);
+document.getElementById('message').innerText='บันทึกคำสั่งซื้อเรียบร้อยแล้ว';
+document.getElementById('picklist').innerHTML=cart.map(x=>
+`<tr><td>${x.id}</td><td>${x.name}</td><td>${x.qty}</td></tr>`
+).join('');
+document.getElementById('history').innerHTML+=
+`<div class="order"><b>ลูกค้า:</b> ${customer}<br><b>โทร:</b> ${phone}<br><b>ที่อยู่:</b> ${address}<br><b>ยอดรวม:</b> ${order.total} บาท<br><b>สินค้า:</b> ${order.items.map(x=>x.name+' × '+x.qty).join(', ')}</div><br>`;
+cart=[];
+showCart();
+}
+</script>
+</body>
+</html>
